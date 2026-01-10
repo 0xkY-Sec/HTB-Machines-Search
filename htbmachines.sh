@@ -34,7 +34,8 @@ function helpPanel(){
 function updateFiles(){
   if [ ! -f bundle.js ]; then
     tput civis
-    echo -e "\n${yellowColour}[+]${endColour} ${grayColour}Descargando archivos necesarios...${endColour}"
+    echo -e "\n${yellowColour}[+]${endColour} ${grayColour}Descargando archivos necesarios...${endColour}\n"
+    sudo apt install node-js-beautify &>/dev/null
     curl -s -X GET $main_url | js-beautify > bundle.js
     echo -e "\n${yellowColour}[+]${endColour} ${grayColour}Archivos descargados con éxito.${endColour}"
     tput cnorm
